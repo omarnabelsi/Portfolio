@@ -52,7 +52,7 @@
     width: 100%;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .nav {
         padding: 1rem 1.5rem;
