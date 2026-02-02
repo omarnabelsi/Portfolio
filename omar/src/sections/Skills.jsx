@@ -4,11 +4,11 @@ import { SiRedux } from "react-icons/si";
 
 export default function Skills() {
   const skills = [
-    { icon: <FaHtml5 />, color: "#E34F26" },   // HTML
-    { icon: <FaCss3Alt />, color: "#1572B6" },// CSS
-    { icon: <FaJs />, color: "#F7DF1E" },     // JS
-    { icon: <FaReact />, color: "#61DAFB" },  // React
-    { icon: <FaGithub />, color: "#181717" }, // GitHub
+    { icon: <FaHtml5 />, color: "#E34F26" },   
+    { icon: <FaCss3Alt />, color: "#1572B6" },
+    { icon: <FaJs />, color: "#F7DF1E" },     
+    { icon: <FaReact />, color: "#61DAFB" },  
+    { icon: <FaGithub />, color: "#181717" }, 
     
   ];
 
