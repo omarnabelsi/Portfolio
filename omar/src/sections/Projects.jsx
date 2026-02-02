@@ -14,17 +14,14 @@ function Projects() {
             <div className="project-content">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
+              <a href={project.URL} target="_blank" rel="noopener noreferrer"></a>
+              <button className="see-projects-btn"><a href={project.URL} target="_blank" rel="noopener noreferrer">See The Project</a></button>
             </div>
           </div>
         ))}
            </div>
 
-            <div className="see-projects">
-                <button className="see-projects-btn"> <a href="https://dynamic-longma-da4733.netlify.app/">See The Project</a></button>
-                <button className="see-projects-btn">  <a href="">See The Project</a></button>
-
-
-            </div>
+    
 
         </section>
     ) 

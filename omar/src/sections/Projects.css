@@ -96,6 +96,13 @@ a{
     color: #000;
 }
 
+.see-projects{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
 @media (max-width: 768px) {
     .projects {
         padding: 60px 1.5rem;
@@ -111,5 +118,9 @@ a{
     .leftside-img{
         display: none;
     }
+    
 }
+
+
+
 )
