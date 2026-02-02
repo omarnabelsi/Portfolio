@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Hero{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+body{
+    background-color: rgb(247, 244, 244);
+}
+.leftside-img{
+    /* position: absolute; */
+    top: 20%;
+    left: 10%;
+    color: rgb(139, 44, 44);
+    font-family: 'Arial', sans-serif;
+}
+.imgback{
+    position: absolute;
+    width: 70%;
+    height: 90 vh;
+    object-fit: cover;
+    z-index: -1;
+    left: 0rem;
+}
+.Pimg{
+    width: 50%;
+    height: 85%;
+    position: relative;
+    left: 13rem;
+    bottom: -1%;
+    z-index: 10000;
+}
+.rightside-img{
+   position: relative;
+    right: 0%;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: right;
+}
+.right-side-p{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 30%;
+    height: 20%;
+    position: relative;
+    right: 50rem;
+    top: 10rem;
+}
+.p{
+    font-size: 3rem;
+    color: rgb(14, 1, 37);
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+.p2{
+    font-size: 1.5rem;
+    color: rgb(33, 12, 71);
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+.al{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+}
+
+.hero-btn {
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.hero-btn:hover {
+    background: linear-gradient(90deg, #0056b3, #003d82);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .Hero{
+        flex-direction: column;
+        align-items: center;
+    }
+    .imgback{
+        width: 100%;
+        height: auto;
+        left: 0;
+    }
+    .Pimg{
+        width: 70%;
+        height: auto;
+        left: 0;
+        bottom: 0;
+    }
+    .rightside-img{
+        text-align: center;
+        right: 0;
+    }
+    .right-side-p{
+        right: 0;
+        top: 2rem;
+        width: 80%;
+    }
+    .p{
+        font-size: 2rem;
+    }
+    .p2{
+        font-size: 1rem;
+    }
+}
+@media (max-width: 1236px) {
+    .right-side-p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }     
+    .p{
+        font-size: 2.5rem;
+    }                                                                    
+
+
+
+
+   
+
+
+}
+
+@media (max-width:1207px) {
+  .right-side-p{
+    right: 40rem;
+  }
+   .p{
+    font-size: 2.2rem;
+   } 
+   .p2{
+    font-size: 1.2rem;
+   }
+}
+
+@media (max-width: 1069px) {
+    .right-side-p{
+      right: 40rem;
+      width: 40%;
+    }
+     .p{
+      font-size: 2rem;
+     } 
+     .p2{
+      font-size: 1.1rem;
+     }
+  }
+  @media (max-width: 930px) {
+    .right-side-p{
+      right: 30rem;
+      width: 45%;
+      top: 8rem;
+    }
+     .p{
+      font-size: 1.8rem;
+     } 
+     .p2{
+      font-size: 1rem;
+     }
+  }
+  @media (max-width: 811px) {
+    .right-side-p{
+      right: 25rem;
+      width: 80%;
+      top: 5rem;
+    }
+     .p{
+      font-size: 2rem;
+     } 
+     .p2{
+      font-size: 1rem;
+     }
+     .Pimg{
+        width: 50%;
+        height: auto;
+        left: 14rem;
+        bottom: 0rem;
+     }
+  }
+  @media (max-width: 667px) {
+    .right-side-p{
+      right: 15rem;
+      width: 80%;
+      top: 5rem;
+    }
+     .p{
+      font-size: 1.8rem;
+     } 
+     .p2{
+      font-size: 1rem;
+     }
+     .Pimg{
+        width: 60%;
+        height: auto;
+        left: 10rem;
+        bottom: 0rem;
+     }
+  }
+  @media (max-width: 770px) {
+    .right-side-p{
+      right: 0rem;
+      width: 90%;
+      top: 3rem;
+    }
+     .p{
+      font-size: 2.5rem;
+
+     } 
+     .p2{
+      font-size: 1rem;
+     }
+     .Pimg{
+        width: 70%;
+        height: auto;
+        left: 0rem;
+        bottom: 0rem;
+     }
+  }
