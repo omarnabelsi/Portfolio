@@ -6,7 +6,7 @@ import { Linkedin, Mail, ArrowRight } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="relative py-32 px-6">
+    <section className="relative py-20 sm:py-32 px-4 sm:px-6">
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="h-[400px] w-[400px] rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-[100px]" />

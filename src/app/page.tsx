@@ -24,24 +24,24 @@ const FloatingParticles = dynamic(() => import("@/components/ui/FloatingParticle
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <CustomCursor />
       <GridBackground />
       <FloatingParticles />
 
       <div className="relative z-10">
         <Navbar />
-        <main>
+        <main className="overflow-x-hidden">
           <Hero />
           <About />
           <Skills />
           <Projects />
-          <Process />
-          <Timeline />
           <CTA />
+          <Timeline />
+          <Process />
         </main>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }

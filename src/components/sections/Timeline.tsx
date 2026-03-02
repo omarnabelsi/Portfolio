@@ -23,7 +23,7 @@ export default function Timeline() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="journey" className="relative py-32 px-6">
+    <section id="journey" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl">
         {/* Section Label */}
         <motion.div

@@ -10,7 +10,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <SectionWrapper id="about" className="py-32 px-6">
+    <SectionWrapper id="about" className="py-20 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-6xl">
         {/* Section Label */}
         <motion.div

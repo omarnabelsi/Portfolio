@@ -195,7 +195,7 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-32 px-6">
+    <section id="projects" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-6xl">
         {/* Section Label */}
         <motion.div

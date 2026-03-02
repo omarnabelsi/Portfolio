@@ -10,7 +10,7 @@ export default function Process() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" className="relative py-32 px-6">
+    <section id="process" className="relative py-20 sm:py-32 px-4 sm:px-6">
       {/* Background accent */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.03] blur-[100px]" />
 

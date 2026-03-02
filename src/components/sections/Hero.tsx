@@ -15,17 +15,17 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 sm:px-6">
       {/* Vibrant gradient orbs */}
-      <div className="pointer-events-none absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-40 -bottom-40 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/10 blur-[120px]" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-orange-500/8 to-rose-500/8 blur-[130px]" />
+      <div className="pointer-events-none absolute -top-40 -left-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 -bottom-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/10 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-orange-500/8 to-rose-500/8 blur-[130px]" />
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"
+        className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 lg:gap-12 lg:grid-cols-[1.1fr_0.9fr]"
       >
         <div className="text-center lg:text-left">
         {/* Status Badge */}
@@ -130,18 +130,18 @@ export default function Hero() {
           custom={2}
           className="flex justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[450px]">
+          <div className="relative w-full max-w-[350px] sm:max-w-[450px]">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-2xl" />
             <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-2 backdrop-blur-sm">
               {imageError ? (
-                <div className="flex h-[520px] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-pink-500/30">
+                <div className="flex h-[400px] sm:h-[520px] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-pink-500/30">
                   <span className="text-lg font-semibold tracking-wide text-white/85">OMAR N</span>
                 </div>
               ) : (
                 <img
                   src="https://i.ibb.co/fVmY4TdP/IMG-SEGMENT.png"
                   alt="Omar Nabelsi - Software Engineer"
-                  className="h-[520px] w-full rounded-2xl object-cover"
+                  className="h-[400px] sm:h-[520px] w-full rounded-2xl object-cover"
                   onError={() => setImageError(true)}
                 />
               )}
