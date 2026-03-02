@@ -36,9 +36,9 @@ export default function Home() {
           <About />
           <Skills />
           <Projects />
-          <CTA />
-          <Timeline />
           <Process />
+          <Timeline />
+          <CTA />
         </main>
         <Footer />
       </div>
