@@ -1,0 +1,429 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   Design tokens — "Editorial Engineering"
+   Paper + ink + one signal colour. Each case study defines its
+   own palette through [data-theme] so components stay shared.
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --paper: #efebe3;
+  --paper-2: #e5e0d5;
+  --ink: #121110;
+  --ink-2: #2b2926;
+  --muted: #5f5a52;
+  --line: rgb(18 17 16 / 0.14);
+  --signal: #c23218; /* 4.7:1 on paper */
+  --signal-ink: #b02e15; /* small text on paper */
+  --signal-bright: #ec5a3c; /* small text on ink (5.4:1) */
+
+  /* ATIZAN Ledger — midnight fintech */
+  --atz-bg: #06120e;
+  --atz-bg-2: #0b1d17;
+  --atz-fg: #e8efe9;
+  --atz-muted: #8fa69b;
+  --atz-accent: #3ddc97;
+  --atz-gold: #d8b25a;
+  --atz-line: rgb(232 239 233 / 0.12);
+
+  /* ALFA — cinematic AI computing */
+  --alfa-bg: #06060a;
+  --alfa-bg-2: #0e0e16;
+  --alfa-fg: #ecebf5;
+  --alfa-muted: #9693ad;
+  --alfa-accent: #8f80ff;
+  --alfa-cyan: #5fe3e8;
+  --alfa-line: rgb(236 235 245 / 0.12);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --gutter: clamp(1rem, 3.2vw, 3rem);
+  --header-h: 72px;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
+  --color-signal-bright: var(--signal-bright);
+  --color-atz-bg: var(--atz-bg);
+  --color-atz-bg-2: var(--atz-bg-2);
+  --color-atz-fg: var(--atz-fg);
+  --color-atz-muted: var(--atz-muted);
+  --color-atz-accent: var(--atz-accent);
+  --color-atz-gold: var(--atz-gold);
+  --color-atz-line: var(--atz-line);
+  --color-alfa-bg: var(--alfa-bg);
+  --color-alfa-bg-2: var(--alfa-bg-2);
+  --color-alfa-fg: var(--alfa-fg);
+  --color-alfa-muted: var(--alfa-muted);
+  --color-alfa-accent: var(--alfa-accent);
+  --color-alfa-cyan: var(--alfa-cyan);
+  --color-alfa-line: var(--alfa-line);
+
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-arabic: var(--font-ruqaa), "Noto Naskh Arabic", serif;
+
+  --ease-out-expo: var(--ease-out);
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-variation-settings: "wdth" 100;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Paper grain — static, GPU-cheap, purely decorative. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.42 0 0 0 0 0.38 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  transition: top 0.2s var(--ease-out);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ── Typography utilities ──────────────────────────────────── */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 860;
+  font-variation-settings: "wdth" 112;
+  letter-spacing: -0.045em;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+@utility display-tight {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+@utility serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+@utility container-x {
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1760px;
+}
+
+/* ── Motion helpers ────────────────────────────────────────── */
+/* Elements animated in by JS start hidden only when JS is running. */
+html.js [data-reveal] {
+  visibility: hidden;
+}
+html.js.reduced [data-reveal] {
+  visibility: visible;
+}
+
+.split-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+@keyframes marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes travel {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ── Loader (pure CSS, so it never traps no-JS visitors) ───── */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  animation: loader-exit 0.6s var(--ease-in-out) 0.85s forwards;
+}
+.loader__seal {
+  font-family: var(--font-arabic);
+  color: var(--signal-bright);
+  font-size: clamp(4rem, 12vw, 8rem);
+  line-height: 1;
+  clip-path: inset(0 0 0 100%);
+  animation: write-rtl 0.7s var(--ease-out) 0.05s forwards;
+}
+.loader__bar {
+  width: min(220px, 50vw);
+  height: 1px;
+  background: rgb(239 235 227 / 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.loader__bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: grow 0.8s var(--ease-in-out) forwards;
+}
+@keyframes write-rtl {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loader-exit {
+  to {
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+  }
+}
+/* ── Intro choreography (CSS-only, so nothing above the fold waits on JS) ── */
+:root {
+  --intro-base: 1s;
+}
+html.loader-seen {
+  --intro-base: 0.15s;
+}
+.char-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.05em;
+  margin-bottom: -0.05em;
+}
+.serif-accent .char-mask {
+  padding: 0.12em 0.04em 0.28em;
+  margin: -0.12em -0.04em -0.28em;
+}
+.char {
+  display: inline-block;
+  animation: char-rise 1.3s var(--ease-out) both;
+  animation-delay: calc(var(--intro-base) + var(--i, 0) * 0.035s);
+}
+@keyframes char-rise {
+  from {
+    transform: translateY(108%);
+  }
+}
+.intro {
+  animation: intro-fade 1.1s var(--ease-out) both;
+  animation-delay: calc(var(--intro-base) + var(--d, 0s));
+}
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+.intro-soft {
+  animation: intro-soft 2s ease-out both;
+  animation-delay: calc(var(--intro-base) - 0.4s);
+}
+@keyframes intro-soft {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Hero seal writes itself right-to-left as the intro lifts.
+   CSS-driven so it never waits on JavaScript (it is the LCP element). */
+.hero-seal {
+  clip-path: inset(-20% -10% -20% 100%);
+  animation: seal-write 1.2s var(--ease-in-out) 0.95s forwards;
+}
+html.loader-seen .hero-seal {
+  animation-delay: 0.15s;
+}
+@keyframes seal-write {
+  to {
+    clip-path: inset(-20% -10% -20% 0%);
+  }
+}
+
+html.loader-seen .loader,
+html.loader-skip .loader {
+  display: none;
+}
+
+/* ── Reduced motion: kill decorative movement everywhere ───── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0s !important;
+  }
+  .loader {
+    display: none;
+  }
+}
+
+/* ── Cursor follower ──────────────────────────────────────── */
+.cursor-ring {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 999px;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s;
+}
+.cursor-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #fff;
+  transform: scale(0.18);
+  transition: transform 0.45s var(--ease-out), background-color 0.3s;
+}
+.cursor-ring > span {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.cursor-ring[data-state="link"]::before {
+  transform: scale(0.5);
+}
+.cursor-ring[data-state="label"] {
+  mix-blend-mode: normal;
+}
+.cursor-ring[data-state="label"]::before {
+  transform: scale(1.35);
+  background: var(--signal);
+}
+.cursor-ring[data-state="label"] > span {
+  opacity: 1;
+}
+.cursor-ring[data-state="hidden"] {
+  opacity: 0;
+}
+
+/* LedgerFlow labels: scale up and drop sub-labels on narrow screens. */
+.lf-label {
+  font-size: 13px;
+}
+.lf-sub {
+  font-size: 9.5px;
+}
+@media (max-width: 640px) {
+  .lf-label {
+    font-size: 21px;
+  }
+  .lf-sub {
+    display: none;
+  }
+}
